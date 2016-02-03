@@ -215,7 +215,7 @@ namespace DataPuring
 
         private void dataGridView1_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -225,6 +225,11 @@ namespace DataPuring
                 object o = dataGridView1.Rows[e.RowIndex].DataBoundItem;
                 var cell = dataGridView1[e.ColumnIndex, e.RowIndex];
                 cell.Style.BackColor = Color.Yellow;
+
+
+                string s = dataGridView1[e.ColumnIndex, e.RowIndex].Value as string;
+                if (!string.IsNullOrEmpty(s))
+                    dataGridView1[e.ColumnIndex, e.RowIndex].Value = s.Trim();
             }
         }
 
